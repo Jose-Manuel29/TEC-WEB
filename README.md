@@ -12,5 +12,8 @@ Repositorio de ejemplo GitHub
 # Periodo
 ## Primavera 2025
 
+# Descripccion 
+## Repositorio para almacenar las practicas hechas en el curso de Tecmnologias Web
+
 
 
