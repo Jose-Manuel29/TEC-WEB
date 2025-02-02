@@ -30,5 +30,31 @@
         echo '<li>$house*5 es inválida porque el símbolo * no está permitido.</li>';
         echo '</ul>';
     ?>
+    <h2>Ejercicio 2</h2>
+    <p> Proporcionar los valores de $a, $b, $c como sigue:<p>
+    <?php
+     $a ="ManejadorSQL";
+     $b = 'MySQL';
+     $c = &$a;
+    echo '<h4>Respuesta:</h4>';   
+     echo '<p> Valores iniciales:<p>';
+     echo "a: $a <br>";
+     echo "b: $b <br>";
+     echo "c: $c <br>";
+
+     $a ="PHP server";
+     $b = &$a;
+    
+     echo '<p> 2da asignación:<p>';
+     echo "a: $a <br>";
+     echo "b: $b <br>";
+     echo "c: $c <br>";
+
+     ?>
+
+
+
+
+
 </body>
 </html>
