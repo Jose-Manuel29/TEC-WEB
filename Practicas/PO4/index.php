@@ -31,7 +31,7 @@
         echo '</ul>';
     ?>
     <h2>Ejercicio 2</h2>
-    <p> Proporcionar los valores de $a, $b, $c como sigue:<p>
+    <p> Proporcionar los valores de $a, $b, $c como sigue:</p>
     <?php
      $a ="ManejadorSQL";
      $b = 'MySQL';
@@ -51,7 +51,28 @@
      echo "c: $c <br>";
 
      ?>
+<h2>Ejercicio 3</h2>
+    <p> Muestra el contenido de cada variable inmediatamente después de cada asignación,
+verificar la evolución del tipo de estas variables (imprime todos los componentes de los
+arreglo):</p>
+    <?php
+     $a = "PHP5";
+     $z[] = &$a;
+     $b = "5a version de PHP";
+ 
+     // Verificamos si $b es un número
+     if (is_numeric($b)) {
+        $c = $b * 10;
+    } else {
+        $c = 0;  // Si no es numérico, asignamos 0 a $c
+    }
+     $a .= $b;
+     $b *= $c;
+     $z[0] = "MySQL";
 
+     echo '<p> Evolucion de las variables:  ';
+     print_r([$a, $b, $c, $z]); 
+     ?>
 
 
 
