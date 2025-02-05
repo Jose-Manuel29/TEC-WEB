@@ -178,7 +178,7 @@ echo PHP_OS . "<br />";
 
 
 echo "Idioma del navegador:";
-echo $_SERVER['HTTP_ACCEPT_LANGUAGE'] . "<br />";
+echo $_SERVER['HTTP_ACCEPT_LANGUAGE']  . "<br />";
 
 ?>
 </body>
