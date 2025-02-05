@@ -133,51 +133,6 @@ echo "Valor de \$c: ";
 var_dump($c); 
 echo "<br />";
 ?>
-    <h2>Ejercicio 6</h2>
-    <p> Dar y comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f y muéstralas
-    usando la función var_dump(<datos>).</p>
-    <?php
-
-echo "<h3>6.Variables de tipo booleano</h3> <br />";
-$a = "0";    // Cadena "0", que se considera FALSE en una evaluación booleana.
-$b = "TRUE"; // Cadena "TRUE", que se considera TRUE en una evaluación booleana.
-$c = FALSE;  // Es FALSE explícitamente.
-$d = ($a OR $b);  // $d será TRUE porque "TRUE" es interpretado como TRUE.
-$e = ($a AND $c); // $e será FALSE, porque uno de los operandos es FALSE.
-$f = ($a XOR $b); // $f será TRUE, porque el operador XOR evalúa a TRUE cuando los operandos son diferentes.
-
-echo"<br />";
-var_dump($a); // "0", se considera FALSE
-echo"<br />";
-var_dump($b); // "TRUE", se considera TRUE
-echo"<br />";
-var_dump($c); // FALSE
-echo"<br />";
-var_dump($d); // TRUE
-echo"<br />";
-var_dump($e); // FALSE
-echo"<br />";
-var_dump($f); // TRUE
-echo "<br />";
-echo"mostrar con un echo: <br />";
-echo"c: ";
-echo var_export($c, true); // Debería mostrar: false
-echo" e:";
-echo var_export($e, true); // Debería mostrar: false
-
-echo"<br />";   
-echo "<h3> 7.Usando la variable predefinida _SERVER <br /> </h3>";        
-
-// a. Versión de Apache y PHP
-echo "a. Versión de Apache: " . $_SERVER['SERVER_SOFTWARE'] . "<br />";
-echo "   Versión de PHP: " . phpversion() . "<br />";
-
-// b. Nombre del sistema operativo del servidor
-echo "b. Sistema operativo del servidor: " . PHP_OS . "<br />";  // También se puede usar $_SERVER['SERVER_SOFTWARE'] para obtener el software del servidor
-
-// c. Idioma del navegador del cliente
-echo "c. Idioma del navegador (cliente): " . $_SERVER['HTTP_ACCEPT_LANGUAGE'] . "<br />";
-?>
 
 </body>
 </html>
