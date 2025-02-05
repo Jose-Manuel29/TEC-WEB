@@ -163,5 +163,23 @@ en uno que se pueda mostrar con un echo:<br />";
 echo "Valor de \$c: " . var_export((bool) $c, true) . "<br />";
 echo "Valor de \$e: " . var_export((bool) $e, true) . "<br />";
 ?>
+ <h2>Ejercicio 7</h2>
+    <p> Usando la variable predefinida $_SERVER, determina lo siguiente:</p>
+    <?php
+
+
+
+echo "Versión de Apache y PHP: ";
+echo $_SERVER['SERVER_SOFTWARE'] . "<br />";
+
+
+echo "Sistema operativo del servidor: ";
+echo PHP_OS . "<br />";
+
+
+echo "Idioma del navegador:";
+echo $_SERVER['HTTP_ACCEPT_LANGUAGE'] . "<br />";
+
+?>
 </body>
 </html>
