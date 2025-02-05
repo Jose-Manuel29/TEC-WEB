@@ -33,49 +33,151 @@
     <h2>Ejercicio 2</h2>
     <p> Proporcionar los valores de $a, $b, $c como sigue:</p>
     <?php
-     $a ="ManejadorSQL";
-     $b = 'MySQL';
-     $c = &$a;
-    echo '<h4>Respuesta:</h4>';   
-     echo '<p> Valores iniciales:<p>';
-     echo "a: $a <br>";
-     echo "b: $b <br>";
-     echo "c: $c <br>";
-
-     $a ="PHP server";
+     echo "<h3> 2.Proporcionar valores  <br /> </h3>";
+     $a = "ManejadorSQL";  
+     $b = 'MySQL';        
+     $c = &$a;     
+     echo "a = $a, b = $b, c = $c<br />";
+     
+     $a = "PHP server";
      $b = &$a;
-    
-     echo '<p> 2da asignación:<p>';
-     echo "a: $a <br>";
-     echo "b: $b <br>";
-     echo "c: $c <br>";
-
+     echo "a = $a, b = $b, c = $c<br />";
+     echo "lo que ocurrio en el segundo bloque de asignaciones es que se modifico el valor 
+     de  a y b, pero b hace referencia a la varibale a de igual manera que lo hace c, por lo que imprimen lo mismo <br />";
+     unset($a, $b, $c);  
      ?>
-<h2>Ejercicio 3</h2>
+     <h2>Ejercicio 3</h2>
     <p> Muestra el contenido de cada variable inmediatamente después de cada asignación,
 verificar la evolución del tipo de estas variables (imprime todos los componentes de los
 arreglo):</p>
     <?php
+     
+     echo"1.- " ;
      $a = "PHP5";
+     var_dump($a);
+     echo "<br />";
+     
+     echo"2.- ";
      $z[] = &$a;
+     var_dump($z);
+     echo "<br />";
+     
+     echo"3.- ";
      $b = "5a version de PHP";
- 
-     // Verificamos si $b es un número
-     if (is_numeric($b)) {
-        $c = $b * 10;
-    } else {
-        $c = 0;  // Si no es numérico, asignamos 0 a $c
-    }
-     $a .= $b;
+     var_dump($b);
+     echo "<br />";
+     
+     echo"4.- " ; 
+     $c = intval($b)*10;
+     var_dump($c);
+     echo "<br />";
+     
+     echo "5.- ";
+     // **Solución:** Convertir `$b` a cadena antes de concatenar
+     $a .= strval($b);
+     var_dump($a);
+     echo "<br />";
+     
+     echo"6.- ";
+     $b = intval($b);
      $b *= $c;
+     var_dump($b);
+     echo "<br />";
+     
+     echo"7.- "  ;
      $z[0] = "MySQL";
-
-     echo '<p> Evolucion de las variables:  ';
-     print_r([$a, $b, $c, $z]); 
+     var_dump($z);
+     
      ?>
+     <h2>Ejercicio 4</h2>
+    <p> Acceso a variables con \$GLOBALS</p>
+    <?php
+     
+     // Usamos $GLOBALS para acceder a las variables globales
+     echo "Valor de \$GLOBALS['a']: ";
+     var_dump($GLOBALS['a']);
+     echo "<br /><br />";
+     
+     echo "Valor de \$GLOBALS['b']: ";
+     var_dump($GLOBALS['b']);
+     echo "<br /><br />";
+     
+     echo "Valor de \$GLOBALS['c']: ";
+     var_dump($GLOBALS['c']);
+     echo "<br /><br />";
+     
+     echo "Valor de \$GLOBALS['z']: ";
+     var_dump($GLOBALS['z']);
+     echo "<br /><br />";
+     
+     // Liberar variables
+     unset($a, $b, $c, $z);
+?>     
+<h2>Ejercicio 5</h2>
+    <p> Dar el valor de las variables $a, $b, $c al final del siguiente script:</p>
+    <?php
+ $a = "7 personas";
+ $b = (integer) $a;
+ $a = "9E3";
+ $c = (double) $a;
 
+ echo "Valor de \$a: ";
+var_dump($a);
+echo "<br />";
 
+echo "Valor de \$b: ";
+var_dump($b); // 
+echo "<br />";
 
+echo "Valor de \$c: ";
+var_dump($c); 
+echo "<br />";
+?>
+    <h2>Ejercicio 6</h2>
+    <p> Dar y comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f y muéstralas
+    usando la función var_dump(<datos>).</p>
+    <?php
+
+echo "<h3>6.Variables de tipo booleano</h3> <br />";
+$a = "0";    // Cadena "0", que se considera FALSE en una evaluación booleana.
+$b = "TRUE"; // Cadena "TRUE", que se considera TRUE en una evaluación booleana.
+$c = FALSE;  // Es FALSE explícitamente.
+$d = ($a OR $b);  // $d será TRUE porque "TRUE" es interpretado como TRUE.
+$e = ($a AND $c); // $e será FALSE, porque uno de los operandos es FALSE.
+$f = ($a XOR $b); // $f será TRUE, porque el operador XOR evalúa a TRUE cuando los operandos son diferentes.
+
+echo"<br />";
+var_dump($a); // "0", se considera FALSE
+echo"<br />";
+var_dump($b); // "TRUE", se considera TRUE
+echo"<br />";
+var_dump($c); // FALSE
+echo"<br />";
+var_dump($d); // TRUE
+echo"<br />";
+var_dump($e); // FALSE
+echo"<br />";
+var_dump($f); // TRUE
+echo "<br />";
+echo"mostrar con un echo: <br />";
+echo"c: ";
+echo var_export($c, true); // Debería mostrar: false
+echo" e:";
+echo var_export($e, true); // Debería mostrar: false
+
+echo"<br />";   
+echo "<h3> 7.Usando la variable predefinida _SERVER <br /> </h3>";        
+
+// a. Versión de Apache y PHP
+echo "a. Versión de Apache: " . $_SERVER['SERVER_SOFTWARE'] . "<br />";
+echo "   Versión de PHP: " . phpversion() . "<br />";
+
+// b. Nombre del sistema operativo del servidor
+echo "b. Sistema operativo del servidor: " . PHP_OS . "<br />";  // También se puede usar $_SERVER['SERVER_SOFTWARE'] para obtener el software del servidor
+
+// c. Idioma del navegador del cliente
+echo "c. Idioma del navegador (cliente): " . $_SERVER['HTTP_ACCEPT_LANGUAGE'] . "<br />";
+?>
 
 </body>
 </html>
