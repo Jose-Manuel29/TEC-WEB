@@ -133,6 +133,35 @@ echo "Valor de \$c: ";
 var_dump($c); 
 echo "<br />";
 ?>
+    <h2>Ejercicio 6</h2>
+    <p> Dar y comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f y muéstralas
+    usando la función var_dump(<datos>).</p>
+    <?php
 
+$a = "0";    // Cadena "0", que se considera FALSE en una evaluación booleana.
+$b = "TRUE"; // Cadena "TRUE", que se considera TRUE en una evaluación booleana.
+$c = FALSE;  // Es FALSE explícitamente.
+$d = ($a OR $b);  // $d será TRUE porque "TRUE" es interpretado como TRUE.
+$e = ($a AND $c); // $e será FALSE, porque uno de los operandos es FALSE.
+$f = ($a XOR $b); // $f será TRUE, porque el operador XOR evalúa a TRUE cuando los operandos son diferentes.
+
+echo"<br />";
+var_dump($a); 
+echo"<br />";
+var_dump($b); 
+echo"<br />";
+var_dump($c); 
+echo"<br />";
+var_dump($d); 
+echo"<br />";
+var_dump($e); 
+echo"<br />";
+var_dump($f);
+echo "<br />";
+echo"función de PHP que permita transformar el valor booleano de $c y $e
+en uno que se pueda mostrar con un echo:<br />";
+echo "Valor de \$c: " . var_export((bool) $c, true) . "<br />";
+echo "Valor de \$e: " . var_export((bool) $e, true) . "<br />";
+?>
 </body>
 </html>
