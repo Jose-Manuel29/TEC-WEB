@@ -22,7 +22,7 @@ if (!empty($tope)) {
     // Asegurar que la conexión use UTF-8
     $link->set_charset('utf8');
 
-    // Consulta SQL para obtener los productos con unidades <= al tope
+
     $query = "SELECT * FROM productos WHERE unidades <= $tope";
     if ($result = $link->query($query)) {
         // Iniciar el documento XHTML
