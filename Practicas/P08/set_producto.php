@@ -7,7 +7,6 @@ $detalles = 'detalles_producto';
 $unidades = 1;
 $imagen   = 'img/imagen.png';
 
-
 /** SE CREA EL OBJETO DE CONEXION */
 @$link = new mysqli('localhost', 'root', 'jmanuel29', 'marketzone');	
 
