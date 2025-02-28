@@ -6,12 +6,13 @@
               integrity= "sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
               crossorigin="anonymous" />
         <script>
-            function show() {
+          function show(event) {
+
                 // se obtiene el id de la fila donde está el botón presinado
-                var rowId = event.target.parentNode.parentNode.id;
+                var row = event.target.closest("tr");
 
                 // se obtienen los datos de la fila en forma de arreglo
-                var data = document.getElementById(rowId).querySelectorAll(".row-data");
+                var data = row.querySelectorAll(".row-data");
                 /**
                 querySelectorAll() devuelve una lista de elementos (NodeList) que 
                 coinciden con el grupo de selectores CSS indicados.
@@ -20,25 +21,27 @@
                 En este caso se obtienen todos los datos de la fila con el id encontrado
                 y que pertenecen a la clase "row-data".
                 */
+                var Id = data[0].innerHTML;
+                var Nombre = data[1].innerHTML;
+                var Marca= data[2].innerHTML;
+                var Modelo= data[3].innerHTML;
+                var Precio= data[4].innerHTML;
+                var Unidades= data[5].innerHTML;
+                var Detalles= data[6].innerHTML;
+                var Imagen = data[7].querySelector("img").src;
 
-                var Nombre = data[0].innerHTML;
-                var Marca= data[1].innerHTML;
-                var Modelo= data[2].innerHTML;
-                var Precio= data[3].innerHTML;
-                var Unidades= data[4].innerHTML;
-                var Detalles= data[5].innerHTML;
-                var Imagen= data[6].innerHTML;
-
-               alert("Nombre: " + Nombre + 
+               alert("Id: " + Id +
+                "\nNombre: " + Nombre + 
       "\nMarca: " + Marca + 
       "\nModelo: " + Modelo + 
       "\nPrecio: " + Precio + 
       "\nUnidades: " + Unidades + 
       "\nDetalles: " + Detalles + 
       "\nImagen: " + Imagen);
+      send2form(Id, Nombre, Marca, Modelo, Precio, Unidades, Detalles, Imagen);
             }
 
-            
+          
         </script>
     </head>
 
@@ -93,15 +96,15 @@ if (!empty($tope)) {
           echo '<table class="table table-bordered">';
           echo '<thead class="thead-dark">';
           echo '<tr>';
-          echo '<th scope="col">#</th>';
-          echo '<th scope="col">Nombre</th>';
-          echo '<th scope="col">Marca</th>';
-          echo '<th scope="col">Modelo</th>';
-          echo '<th scope="col">Precio</th>';
-          echo '<th scope="col">Unidades</th>';
-          echo '<th scope="col">Detalles</th>';
-          echo '<th scope="col">Imagen</th>';
-          echo '<th scope="col">Submit</th>';
+          echo '<th scope="col">id</th>';
+          echo '<th scope="col">nombre</th>';
+          echo '<th scope="col">marca</th>';
+          echo '<th scope="col">modelo</th>';
+          echo '<th scope="col">precio</th>';
+          echo '<th scope="col">unidades</th>';
+          echo '<th scope="col">detalles</th>';
+          echo '<th scope="col">imagen</th>';
+          echo '<th scope="col">submit</th>';
         //  echo '<th scope="col">ELIMINADO</th>';
           echo '</tr>';
           echo '</thead>';
@@ -110,7 +113,7 @@ if (!empty($tope)) {
           while ($row = $result->fetch_assoc()) {
             $estado_eliminado = ($row['ELIMINADO'] == 1) ? 'ELIMINADO' : 'Activo';
         
-            echo '<tr id="row_' . $row['id'] . '">'; // Agregar el ID de la fila correctamente
+          
             echo '<td class="row-data">' . $row['id'] . '</td>';
             echo '<td class="row-data">' . $row['nombre'] . '</td>';
             echo '<td class="row-data">' . $row['marca'] . '</td>';
@@ -119,7 +122,7 @@ if (!empty($tope)) {
             echo '<td class="row-data">' . $row['unidades'] . '</td>';
             echo '<td class="row-data">' . $row['detalles'] . '</td>';
             echo '<td class="row-data"><img src="' . $row['imagen'] . '" alt="Imagen del Producto" style="max-width: 100px; height: auto;" /></td>';
-            echo '<td><input type="button" value="Mostrar" onclick="show()" /></td>';
+           echo '<td><input type="button" value="Mostrar" onclick="show(event)" /></td>';
             echo '</tr>'; // Cierra correctamente la fila
         }
             echo '</tbody>';
@@ -140,7 +143,7 @@ if (!empty($tope)) {
 ?>
 
 <<script>
-    function send2form(id, name, brand, model, price, units, details) {
+  function send2form(id, name, brand, model, price, units, details) {
         var form = document.createElement("form");
 
         // Crear y agregar el campo para el ID del producto
@@ -153,42 +156,42 @@ if (!empty($tope)) {
         // Crear y agregar el campo para el nombre del producto
         var nameIn = document.createElement("input");
         nameIn.type = 'hidden';
-        nameIn.name = 'Nombre';
+        nameIn.name = 'nombre';
         nameIn.value = name;
         form.appendChild(nameIn);
 
         // Crear y agregar el campo para la marca del producto
         var brandIn = document.createElement("input");
         brandIn.type = 'hidden';
-        brandIn.name = 'Marca';
+        brandIn.name = 'marca';
         brandIn.value = brand;
         form.appendChild(brandIn);
 
         // Crear y agregar el campo para el modelo del producto
         var modelIn = document.createElement("input");
         modelIn.type = 'hidden';
-        modelIn.name = 'Modelo';
+        modelIn.name = 'modelo';
         modelIn.value = model;
         form.appendChild(modelIn);
 
         // Crear y agregar el campo para el precio del producto
         var priceIn = document.createElement("input");
         priceIn.type = 'hidden';
-        priceIn.name = 'Precio';
+        priceIn.name = 'precio';
         priceIn.value = price;
         form.appendChild(priceIn);
 
         // Crear y agregar el campo para las unidades del producto
         var unitsIn = document.createElement("input");
         unitsIn.type = 'hidden';
-        unitsIn.name = 'Unidades';
+        unitsIn.name = 'unidades';
         unitsIn.value = units;
         form.appendChild(unitsIn);
 
         // Crear y agregar el campo para los detalles del producto
         var detailsIn = document.createElement("input");
         detailsIn.type = 'hidden';
-        detailsIn.name = 'Detalles';
+        detailsIn.name = 'detalles';
         detailsIn.value = details;
         form.appendChild(detailsIn);
 
