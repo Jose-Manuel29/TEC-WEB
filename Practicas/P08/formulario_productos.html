@@ -15,61 +15,29 @@
   <body>
     <h1>Registra tu producto &ldquo;Tienda boutique&rdquo;</h1>
 
-    <p>Registra tus productos<br><br>Justifica el por qué tus productos son los <em>mejores</em>, haz la diferencia.</p>
+    <p>Registra tus porductos<br><br>Justifica el por qué tus productos son los <em>mejores</em> haz la diferencia </p>
 
-    <form id="formularioProducto" action="http://localhost/tecweb/Practicas/P08/set_producto_v2.php" method="post" enctype="multipart/form-data">
-        <h2>Información de Participación</h2>
+    <form id="formularioProducto" action="http://localhost/tecweb/Practicas/P08/set_producto_v2.php" method="post">
 
-        <fieldset>
-            <legend>Información Personal</legend>
+    <h2>Información de Participación</h2>
 
-            <ul>
-                <li>
-                    <label for="form-name">Nombre:</label>
-                    <input type="text" name="name" id="form-name" maxlength="100" required>
-                </li>
-                <li>
-                    <label for="form-marca">Marca:</label>
-                    <select name="marca" id="form-marca" required>
-                        <option value="">Selecciona una marca</option>
-                        <option value="Apple">Apple</option>
-                        <option value="Samsung">Samsung</option>
-                        <option value="Sony">Sony</option>
-                        <option value="LG">LG</option>
-                        <option value="Dell">Dell</option>
-                        <option value="HP">HP</option>
-                    </select>
-                </li>
-                <li>
-                    <label for="form-modelo">Modelo:</label>
-                    <input type="text" name="modelo" id="form-modelo" maxlength="25" pattern="[a-zA-Z0-9]+" required>
-                </li>
-                <li>
-                    <label for="form-precio">Precio:</label>
-                    <input type="number" name="precio" id="form-precio" step="0.01" min="99.99" required>
-                </li>
-                <li>
-                    <label for="form-detalles">Detalles:</label>
-                    <input type="text" name="detalles" id="form-detalles" maxlength="250">
-                </li>
-                <li>
-                    <label for="form-unidades">Unidades:</label>
-                    <input type="number" name="unidades" id="form-unidades" min="0" required>
-                </li>
-                <li>
-                    <label for="form-image">Imagen del Producto (png):</label>
-                    <input type="file" name="imagen" id="form-image" accept="image/png">
-                </li>
-            </ul>
-        </fieldset>
+      <fieldset>
+        <legend>Información Personal</legend>
 
-        <p>
-            <input type="submit" value="Guardar">
-            <input type="reset">
-        </p>
-    </form>
-
-    <script src="validacion.js"></script> <!-- Asegúrate de enlazar el archivo de validación -->
-</body>
-
+        <ul>
+          <li><label for="form-name">Nombre:</label> <input type="text" name="name" id="form-name"></li>
+          <li><label for="form-marca">Marca:</label> <input type="text" name="marca" id="form-marca"></li>
+          <li><label for="form-modelo">Modelo:</label> <input type="text" name="modelo" id="form-modelo"></li>
+          <li><label for="form-precio">precio:</label> <input type="text" name="precio" id="form-precio"></li>
+          <li><label for="form-detalles">Detalles:</label> <input type="text" name="detalles" id="form-detalles"></li>
+          <li><label for="form-unidades">Unidades:</label> <input type="text" name="unidades" id="form-unidades"></li>
+          <li> <label for="form-image">Imagen del Producto(png):</label>
+            <input type="file" name="imagen" id="form-image" accept="image/*"></li>
+        </ul>
+      </fieldset>
+      <p>
+        <input type="submit" value="Guardar">
+        <input type="reset">
+      </p>
+  </body>
 </html>
