@@ -7,7 +7,7 @@ require_once __DIR__ . '/DataBase.php';
 class Read extends DataBase {
 
 
-    public function __construct($db, $user='root', $pass='Jmanuel29') {
+    public function __construct($db, $user='root', $pass='jmanuel29') {
      
         parent::__construct($db, $user, $pass);
     }
