@@ -1,8 +1,8 @@
 <?php
-namespace TECWEB\MYAPI;
+namespace TECWEB\MYAPI\create;
 
 use TECWEB\MYAPI\DataBase;
-require_once __DIR__ . '/DataBase.php';
+
 
 class Create extends DataBase {
    

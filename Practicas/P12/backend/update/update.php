@@ -1,9 +1,7 @@
 <?php
-namespace TECWEB\MYAPI;
+namespace TECWEB\MYAPI\update;
 
 use TECWEB\MYAPI\DataBase;
-require_once __DIR__ . '/DataBase.php';
-
 class Products extends DataBase {
 
 
