@@ -11,14 +11,10 @@
       <a href="#">Product App</a>
       
         <ul></ul>
-        <form id="searchForm">
-          <input name="search" id="searchn" type="search" placeholder="Buscar producto por ID o nombre">
-          <!-- Botón de búsqueda por ID -->
-          <button type="button" onclick="buscarID(event)">Buscar por ID</button>
-          
-          <!-- Botón de búsqueda por nombre -->
-          <button type="button" onclick="buscarProducto(event)">Buscar por Nombre</button>
-      </form>
+        <form>
+          <input name="search" id="search" type="search" placeholder="ID">
+          <button type="submit" onclick="buscarID(event)">Buscar</button>
+        </form>
     </nav>
 
     <div>
@@ -27,8 +23,6 @@
         <form id="task-form">
           <div>
             <input type="text" id="name" placeholder="Nombre de producto">
-
-
           </div>
           <div>
             <textarea id="description" cols="30" rows="10" placeholder="JSON de producto"></textarea>
