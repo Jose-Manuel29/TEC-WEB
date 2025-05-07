@@ -70,7 +70,7 @@ class AppFactory
     }
 
     /**
-     * TContainerInterface of (ContainerInterface)
+     * @template TContainerInterface of (ContainerInterface)
      * @param TContainerInterface $container
      * @return App<TContainerInterface>
      */
