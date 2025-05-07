@@ -2,15 +2,14 @@
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
-use TECWEB\MYAPI\Read\read;
-use TECWEB\MYAPI\Create\create;
-use TECWEB\MYAPI\Update\update;
-use TECWEB\MYAPI\Delete\delete;
-require __DIR__ . '/vendor/autoload.php';
-
+use TECWEB\MYAPI\read\read;
+use TECWEB\MYAPI\create\create;
+use TECWEB\MYAPI\update\update;
+use TECWEB\MYAPI\delete\delete;
+require '../vendor/autoload.php';
 $app = AppFactory::create();
 $app->addBodyParsingMiddleware();
-$app->setBasepath("/tecweb/Actividades/a09/product_app/backend");
+$app->setBasepath("/tecweb/actividades/a09/product_app/backend");
 $app->get('/product/{id}', function(Request $request, Response $response, $args) {
     $productos = new read('marketzone');
     $productos->single($args['id']);

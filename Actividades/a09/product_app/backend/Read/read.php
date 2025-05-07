@@ -1,13 +1,13 @@
 <?php
 namespace TECWEB\MYAPI\read;
 
-use TECWEB\MYAPI\DataBase as Database;
+use TECWEB\MYAPI\DataBase;
 
-class Read extends DataBase {
+class read extends DataBase {
 
-
-    public function __construct($db, $user='root', $pass='jmanuel29') {
-     
+    public function __construct($db, $user='root', $pass='jmanuel29')
+    {
+        $this->data = array();
         parent::__construct($db, $user, $pass);
     }
 

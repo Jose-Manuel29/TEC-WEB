@@ -1,11 +1,12 @@
 <?php
+
 namespace TECWEB\MYAPI;
 
-use TECWEB\MYAPI\DataBase as Database;
+use TECWEB\MYAPI\DataBase;
 require_once __DIR__ . '/DataBase.php';
 
 class Products extends DataBase {
-   
+    protected $data;
 
     public function __construct($db, $user='root', $pass='jmanuel29') {
         $this->data = array();
@@ -157,4 +158,5 @@ class Products extends DataBase {
 }
 
 //$productos = new Productos();
+
 ?>

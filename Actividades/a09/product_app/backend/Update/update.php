@@ -1,15 +1,15 @@
 <?php
 namespace TECWEB\MYAPI\update;
 
-use TECWEB\MYAPI\DataBase as Database;
-class Products extends DataBase {
+use TECWEB\MYAPI\DataBase;
+class update extends DataBase {
 
 
-    public function __construct($db, $user='root', $pass='jmanuel29') {
-     
+    public function __construct($db, $user='root', $pass='jmanuel29')
+    {
+        $this->data = array();
         parent::__construct($db, $user, $pass);
     }
-
     public function edit($jsonOBJ) {
         // SE CREA EL ARREGLO QUE SE VA A DEVOLVER EN FORMA DE JSON
         $this->data = array(

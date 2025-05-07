@@ -1,14 +1,16 @@
 <?php
 namespace TECWEB\MYAPI\delete;
-use TECWEB\MYAPI\DataBase as Database;
+
+use TECWEB\MYAPI\DataBase;
+
 class delete extends DataBase {
 
 
-    public function __construct($db, $user='root', $pass='jmanuel29') {
-     
+    public function __construct($db, $user='root', $pass='jmanuel29')
+    {
+        $this->data = array();
         parent::__construct($db, $user, $pass);
     }
-
 
     public function delete($id) {
         // SE CREA EL ARREGLO QUE SE VA A DEVOLVER EN FORMA DE JSON

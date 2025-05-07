@@ -1,14 +1,15 @@
 <?php
 namespace TECWEB\MYAPI\create;
 
-use TECWEB\MYAPI\DataBase as Database;
+use TECWEB\MYAPI\DataBase;
 
 
 class create extends DataBase {
    
 
-    public function __construct($db, $user='root', $pass='jmanuel29') {
-     
+    public function __construct($db, $user='root', $pass='jmanuel29')
+    {
+        $this->data = array();
         parent::__construct($db, $user, $pass);
     }
 
